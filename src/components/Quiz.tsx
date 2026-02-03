@@ -29,7 +29,11 @@ const Quiz: React.FC<QuizProps> = ({ settings, onComplete }) => {
   const [timeLeft, setTimeLeft] = useState(QUESTION_TIME);
 
   useEffect(() => {
-    const url = `https://opentdb.com/api.php?amount=${settings.amount}&difficulty=${settings.difficulty}&type=multiple`;
+    let url = `https://opentdb.com/api.php?amount=${settings.amount}&difficulty=${settings.difficulty}&type=multiple`;
+    
+    if (settings.category) {
+      url += `&category=${settings.category}`;
+    }
 
     fetch(url)
       .then((response) => response.json())

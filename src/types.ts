@@ -3,3 +3,8 @@ export type QuizSettings = {
   amount: number;
   category: string;
 };
+
+export type Category = {
+  id: string;
+  theme: string;
+};
